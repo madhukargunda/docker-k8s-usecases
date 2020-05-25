@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+
+  apache-a:
+    build: ./apache
+    container_name: apache
+    networks: 
+      - web
+    ports:
+      - 8081:80
+
+  haproxy:
+    build: ./haproxy
+    container_name: haproxy
+    ports:
+      - 80
+    networks:
+      - web
+    depends_on:
+      - wechat-1  
+
+  wechat-1:
+    image: madhukargunda/wechat-social-connector:2.0.0
+    container_name: wechat-1
+    ports:
+     - 8000
+    networks:
+     - web 
+    depends_on:
+     - wechat-2
+            
+  wechat-2:
+    image: madhukargunda/wechat-social-connector:2.0.0
+    container_name: wechat-2
+    ports:
+     - 8000
+    networks:
+     - web
+   
+networks:
+ web:
+  
+    

@@ -1,0 +1,33 @@
+version: '3.3'
+
+services: 
+  apache-a:
+    build: ./apache-a
+    container_name: apache-a
+    networks: 
+      - back-end
+    ports:
+      - ${APACHE_EXPOSED_PORT}
+
+  apache-b:
+    build: ./apache-b
+    container_name: apache-b
+    networks: 
+      - back-end
+    ports:
+      - ${APACHE_EXPOSED_PORT}
+
+  haproxy:
+    build: ./haproxy
+    container_name: haproxy
+    ports:
+      - 80:80
+    networks:
+      - back-end  
+    environment:
+      - APACHE_A_SERVICE_NAME=${APACHE_A_SERVICE_NAME}
+      - APACHE_B_SERVICE_NAME=${APACHE_B_SERVICE_NAME}
+      - APACHE_EXPOSED_PORT=${APACHE_EXPOSED_PORT}
+
+networks:
+  back-end:

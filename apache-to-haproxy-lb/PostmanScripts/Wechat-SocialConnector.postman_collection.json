@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "174f823c-83a4-4dbd-826b-40e0d72f7d46",
+		"name": "Wechat-SocialConnector",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Wechat-SocialConnector",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://venkateshkurva1c.mylabserver.com:8000/v1/:orgID/socialconnections/wechat",
+					"protocol": "http",
+					"host": [
+						"venkateshkurva1c",
+						"mylabserver",
+						"com"
+					],
+					"port": "8000",
+					"path": [
+						"v1",
+						":orgID",
+						"socialconnections",
+						"wechat"
+					],
+					"variable": [
+						{
+							"key": "orgID",
+							"value": "MADHUKAR"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Wechat-SocialConnector - Local",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/:orgID/socialconnections/wechat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						":orgID",
+						"socialconnections",
+						"wechat"
+					],
+					"variable": [
+						{
+							"key": "orgID",
+							"value": "MADHUKAR"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
